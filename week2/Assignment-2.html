@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+          <meta name="viewport" content="width=device-width , initial-scale=1.0"/>
+          <meta charset="UTF-8"/>
+          <title>Assignment-2</title> 
+    </head>
+    <body>
+        <script>
+        console.log("=== Task 1 ===");
+
+        function findAndPrint(messages) {
+              let olderThan17 = [];
+            
+              for (let name in messages) {
+                let message = messages[name];
+            
+                if (
+                  message.includes("18 years old") ||
+                  message.includes("college student") ||
+                  message.includes("legal age") ||
+                  message.includes("vote")
+                ) {
+                  olderThan17.push(name);
+                }
+              }
+            
+              for (let i = 0; i < olderThan17.length; i++) {
+                console.log(olderThan17[i]);
+              }
+            }
+            
+        findAndPrint({
+              Bob: "My name is Bob. I'm 18 years old.",
+              Mary: "Hello, glad to meet you.",
+              Copper: "I'm a college student. Nice to meet you.",
+              Leslie: "I am of legal age in Taiwan.",
+              Vivian: "I will vote for Donald Trump next week",
+              Jenny: "Good morning.",
+            });
+        console.log("=== Task 2 ===");
+        function calculateSumOfBonus(data) {
+              const exchangeRate = 30;
+              let bonusSum = 0;
+
+              for (let employee of data.employees) {
+                let salary = employee.salary;
+                let performance = employee.performance;
+                let role = employee.role;
+
+                if (typeof salary === "string" && salary.endsWith("USD")) {
+                  salary = parseInt(salary.slice(0, -3)) * exchangeRate;
+                } else if (typeof salary === "string") {
+                  salary = parseInt(salary.replace(",", ""));
+                }
+
+                let bonus = 0;
+
+                if (salary >= 50000) {
+                  if (performance === "above average") {
+                    bonus = 2000;
+                  } else if (performance === "average") {
+                    bonus = 1500;
+                  } else if (performance === "below average") {
+                    bonus = 1000;
+                  }
+                } else {
+                  if (performance === "above average") {
+                    bonus = 1000;
+                  } else if (performance === "average") {
+                    bonus = 800;
+                  } else if (performance === "below average") {
+                    bonus = 500;
+                  }
+                }
+
+                if (role === "CEO") {
+                  bonus *= 2;
+                } else if (role === "Engineer") {
+                  bonus *= 1.5;
+                } else if (role === "Sales") {
+                  bonus *= 1.7;
+                }
+
+                bonusSum += bonus;
+              }
+
+              console.log(bonusSum.toFixed(0));
+            }
+
+        calculateSumOfBonus({
+              employees: [
+                {
+                  name: "John",
+                  salary: "1000USD",
+                  performance: "above average",
+                  role: "Engineer",
+                },
+                {
+                  name: "Bob",
+                  salary: 60000,
+                  performance: "average",
+                  role: "CEO",
+                },
+                {
+                  name: "Jenny",
+                  salary: "50,000",
+                  performance: "below average",
+                  role: "Sales",
+                },
+              ],
+            });
+        console.log("=== Task 3 ===");
+
+        function func(...data) {
+            let middleNames = [];
+            let uniqueMiddleName = "沒有";
+
+            for (let name of data) {
+    
+              middleNames.push(name[1]);
+            }
+
+            for (let name of data) {
+              if (middleNames.filter((n) => n === name[1]).length === 1) {
+                uniqueMiddleName = name;
+                break;
+              }
+            }
+
+            console.log(uniqueMiddleName);
+          }
+
+        func("彭⼤牆", "王明雅", "吳明");
+        func("郭靜雅", "王立強", "林靜宜", "郭立恆", "林花花");
+        func("郭宣雅", "林靜宜", "郭宣恆", "林靜花");
+        console.log("=== Task 4 ===");
+
+        function getNumber(index) {
+            let answer;
+
+            if (index % 2 === 0) {
+              answer = 3 * (index / 2);
+            } else {
+              answer = 1 + 3 * ((index + 1) / 2);
+            }
+
+            console.log(Math.floor(answer));
+          }
+
+        getNumber(1);
+        getNumber(5);
+        getNumber(10);
+        console.log("=== Task 5 ===");
+        function findIndexOfCar(seats, status, number) {
+    let initialFitIndex = -1;
+    let fitIndex = [];
+    let fitValue = [];
+
+    for (let i = 0; i < seats.length; i++) {
+      if (status[i] === 1 && seats[i] >= number) {
+        fitIndex.push(i);
+        fitValue.push(seats[i] - number);
+      }
+    }
+
+    for (let j = 0; j < fitIndex.length; j++) {
+      let minFitValue = Math.min(...fitValue);
+
+      if (fitValue[j] === minFitValue) {
+        initialFitIndex = fitIndex[j];
+      }
+    }
+
+    console.log(initialFitIndex);
+  }
+
+        findIndexOfCar([3, 1, 5, 4, 2], [0, 1, 0, 1, 1], 2);
+        findIndexOfCar([1, 0, 5, 1, 3], [0, 1, 0, 1, 1], 4);
+        findIndexOfCar([4, 6, 5, 8], [0, 1, 1, 1], 4);
+        </script>
+    </body>
+<html>
+  
+         
+      
+
+  
+        
