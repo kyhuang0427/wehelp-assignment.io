@@ -32,7 +32,7 @@ def extract_region(address):
 with open("attraction.csv", mode="w", encoding="utf-8", newline="") as file:
     writer = csv.writer(file)
    
-     for item in data["result"]["results"]:
+    for item in data["result"]["results"]:
         name = item["stitle"]
         address = item["address"]
         region = extract_region(address)
@@ -45,13 +45,14 @@ with open("attraction.csv", mode="w", encoding="utf-8", newline="") as file:
             writer.writerow([item["stitle"], region, lat, lng, imageURL])
 
 mrt_dict = {}
-    for item in data["result"]["results"]:
-        mrt = item["MRT"]
-        if mrt not in mrt_dict:
-            mrt_dict[mrt] = []
-        mrt_dict[mrt].append(item["stitle"])
+for item in data["result"]["results"]:
+    mrt = item["MRT"]
+    if mrt not in mrt_dict:
+        mrt_dict[mrt] = []
+    mrt_dict[mrt].append(item["stitle"])
 
-    with open("mrt.csv", mode="w", encoding="utf-8", newline="") as file:
-        writer = csv.writer(file)
-        for mrt, attractions in mrt_dict.items():
-            writer.writerow([mrt] + attractions)
+with open("mrt.csv", mode="w", encoding="utf-8", newline="") as file:
+    writer = csv.writer(file)
+    for mrt, attractions in mrt_dict.items():
+        writer.writerow([mrt] + attractions)
+
