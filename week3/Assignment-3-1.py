@@ -32,14 +32,17 @@ def extract_region(address):
 with open("attraction.csv", mode="w", encoding="utf-8", newline="") as file:
     writer = csv.writer(file)
    
-    for item in data["result"]["results"]:
+     for item in data["result"]["results"]:
         name = item["stitle"]
         address = item["address"]
         region = extract_region(address)
         lat = item["latitude"]
         lng = item["longitude"]
+        imageURLs = item["file"].split('https')
+        imageURL = 'https' + imageURLs[1]
+
         if lat and lng:
-            writer.writerow([item["stitle"], region, lat, lng, item["file"].split(";")[0]])
+            writer.writerow([item["stitle"], region, lat, lng, imageURL])
 
 mrt_dict = {}
 for item in data["result"]["results"]:
