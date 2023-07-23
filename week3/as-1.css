@@ -101,6 +101,7 @@ body{ margin: 0; padding: 0; font-family:"Times New Roman","DFKai-sb";}
 
 .promotion{
     flex:auto;
+    width:300px;
     height:50px;
     line-height:50px;
     background-color:#cccccc;
