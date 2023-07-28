@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',     filename='css/template.css') }}">
+    <title>會員系統</title>
+</head>
+<body>
+    <div class = "title">
+        <div class = "title-content">歡迎光臨，請輸入帳號密碼</div>
+    </div>
+    <div class="signin">
+        <div class="signin-content">登入系統</div>
+    </div>
+    <div class="signin">
+        <form action="/signin" method="POST" id="signin-form" class="signin-info">
+            帳號 <input type="text" name="email" /><br />
+            密碼 <input type="password" name="password" /><br/>
+            <label for="checkbox">同意條款</label>
+            <input type="checkbox" id="checkbox" /><br/>
+            <button type="submit">登入</button>
+        </form>
+    </div>
+    <div class="calculate">
+        <div class="calculate_content">計算正整數的平方</div>
+    </div>
+    <div class="square">
+        <form id="squareForm" class="signin-info">
+            <label for="number">正整數</label>
+            <input type="number" id="number" name="number" required>
+            <br/><button type="button" onclick="calculateSquare()">計算</button>
+        </form>
+    </div>
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("signin-form");
+      const checkbox = document.getElementById("checkbox");
+    
+      form.addEventListener("submit", function (event) {
+        if (!checkbox.checked) {
+         
+          event.preventDefault();
+         
+          alert("Please check the checkbox first");
+        }
+        
+      });
+    });
+    function calculateSquare() {
+            const numberInput = document.getElementById('number').value;
+            const parsedNumber = parseFloat(numberInput);
+
+            if (!Number.isInteger(parsedNumber) || parsedNumber <= 0) {
+                
+                alert('Please enter a positive number');
+            } else {
+                
+                window.location.href = '/square/' + parsedNumber;
+            }
+        }
+    </script>
+    
+</html> 
