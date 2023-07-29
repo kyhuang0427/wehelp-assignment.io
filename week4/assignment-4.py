@@ -40,7 +40,7 @@ def signout():
 
 @app.route("/error")
 def error():
-    message=request.args.get("msg", "發生錯誤，請聯繫客服")
+    message=request.args.get("message", "發生錯誤，請聯繫客服")
     return render_template("error.html", message=message)
 
 @app.route("/signin", methods=["POST"])
