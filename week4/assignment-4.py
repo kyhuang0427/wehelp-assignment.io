@@ -38,10 +38,6 @@ def signout():
     del session["nickname"]
     return redirect("/")
 
-@app.route("/back")
-def back():
-    return redirect("/")
-
 @app.route("/error")
 def error():
     message=request.args.get("msg", "發生錯誤，請聯繫客服")
@@ -52,7 +48,7 @@ def signin():
     email=request.form["email"]
     password=request.form["password"]
     if email=="" or password=="":
-        return redirect("/error?msg=請輸入帳號密碼")
+        return redirect("/error?message=請輸入帳號密碼")
 
     collection=db.user
     result=collection.find_one({
@@ -62,7 +58,7 @@ def signin():
         ]
     })
     if result==None:
-        return redirect("/error?msg=帳號或密碼輸入錯誤")
+        return redirect("/error?message=帳號或密碼輸入錯誤")
     
     session["nickname"]=result["nickname"]
     
