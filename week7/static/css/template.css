@@ -1,0 +1,131 @@
+body{ margin: 0; padding: 0; font-family:"Times New Roman","DFKai-sb";}
+
+.title{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height:150px;
+    background-color: steelblue;
+}
+
+.title-content{
+    width:1000px;
+    height:50px;
+    font-size: 40px;
+    text-align: center;
+
+}
+
+.signup-top{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height:50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.signup-content{
+    width:1000px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.signup-bot{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height:50px;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.signup-info{
+    margin-top: 10px;
+    width:1000px;
+    font-size: 20px;
+    text-align: center;
+    line-height:35px;
+}
+
+.signin-top{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height:50px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.signin-content{
+    width:1000px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.signin-bot{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height:50px;
+}
+
+.signin-info{
+    margin-top: 10px;
+    width:1000px;
+    font-size: 20px;
+    text-align: center;
+    line-height:35px;
+}
+
+.msg-top{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height:50px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.msg-content{
+    width:1000px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.msg-bot{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height:50px;
+    margin-bottom: 100px;
+}
+
+.msg-info{
+    margin-top: 10px;
+    width:1000px;
+    font-size: 20px;
+    text-align: center;
+    line-height:35px;
+}
+
+.message-container {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.message-content {
+    font-size: 20px;
+    text-align: center;
+}
+
+.delete-form {
+   margin-left: 10px;
+}
+
+.test {
+    display: flex;
+    flex-direction: column;
+}
